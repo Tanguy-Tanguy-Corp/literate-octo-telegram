@@ -12,3 +12,4 @@ def test_scrabble_init():
     assert len(scrabble.players) == scrabble.nb_players == 2
     assert [len(player.rack) for player in scrabble.players] == [scrabble.rack_size] * scrabble.nb_players
     assert len(scrabble.purse) == 102 - (scrabble.rack_size*scrabble.nb_players)
+    assert not scrabble.purse_is_empty

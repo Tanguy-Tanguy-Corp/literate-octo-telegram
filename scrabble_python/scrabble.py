@@ -24,6 +24,7 @@ class Scrabble:
         self.board = board
         if purse is None or board is None:
             self.__initialize_game()
+        self.purse_is_empty = len(self.purse) == 0
 
     def __initialize_game(self):
         self.purse = Purse(lang=self.lang)
