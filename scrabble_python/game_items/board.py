@@ -1,7 +1,7 @@
 from pprint import pformat
 from .tile import Tile
 from .word import Word
-from .scrabble_errors import ScrabbleError
+from ..errors import ScrabbleError
 
 multipliers = {
     'word_triple': [(0, 0), (0, 7), (0, 14), (7, 0), (7, 14), (14, 0), (14, 7), (14, 14)],

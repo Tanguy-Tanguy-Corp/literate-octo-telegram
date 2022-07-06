@@ -2,6 +2,7 @@ from uuid import uuid4
 from .helpers import create_distribution
 
 
+
 class Tile:
     def __init__(self, letter: str, pos: tuple = None, tile_id: str = None, lang: str = 'fr'):
         self.lang = lang

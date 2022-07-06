@@ -3,7 +3,7 @@ from copy import deepcopy
 from scrabble_python.game_items import Board
 from scrabble_python.game_items import Tile
 from scrabble_python.game_items import Word
-from scrabble_python.game_items.scrabble_errors import ScrabbleError
+from scrabble_python.errors import ScrabbleError
 
 
 valid_first_tiles = [
