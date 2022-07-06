@@ -1,8 +1,8 @@
 import pytest
 from copy import deepcopy
-from scrabble_python.game_items import Board
-from scrabble_python.game_items import Tile
-from scrabble_python.game_items import Word
+from scrabble_python.items import Board
+from scrabble_python.items import Tile
+from scrabble_python.items import Word
 from scrabble_python.errors import ScrabbleError
 
 
