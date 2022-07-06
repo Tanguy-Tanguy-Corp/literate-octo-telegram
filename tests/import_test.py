@@ -18,27 +18,3 @@ def test_purse_import():
 def test_board_import():
     board = Board()
     assert isinstance(board, Board)
-
-
-# tiles = [
-#     Tile('I', [8, 7]),
-#     #Tile('B', [7, 7]),
-#     Tile('I', [7, 8]),
-#     Tile('T', [7, 9]),
-#     Tile('E', [7, 10]),
-#     Tile('S', [7, 11]),
-#     Tile('T', [6, 10]),
-#     Tile('S', [8, 10]),
-#     Tile('S', [7, 0]),
-#     Tile('I', [7, 1]),
-# ]
-
-# board = Board(tiles)
-# print(board)
-# words = board.get_words_on_board()
-# print(words)
-
-# compare = board.compare_words([Tile('E', (7, 9)), Tile('B', [7, 7])])
-# print(compare)
-
-# print(board.score_word([Tile('E', (6, 9)), Tile('B', [7, 7])]))
