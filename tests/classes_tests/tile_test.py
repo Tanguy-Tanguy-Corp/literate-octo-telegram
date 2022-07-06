@@ -1,4 +1,4 @@
-from scrabble_python.game_items.tile import Tile
+from scrabble_python.game_items import Tile
 
 
 def test_tile_uppercase():

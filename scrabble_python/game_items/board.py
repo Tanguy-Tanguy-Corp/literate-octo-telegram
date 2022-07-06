@@ -49,26 +49,29 @@ class Board:
     def __eq__(self, other):
         return isinstance(other, Board)
 
-    def add_tiles(self, new_tiles: list[Tile]):
+    def add_tiles(self, tiles_to_add: list[Tile]):
         coords_on_board = [tile.pos for tile in self.tiles]
-        for new_tile in new_tiles:
+        for new_tile in tiles_to_add:
             if new_tile.pos in coords_on_board:
                 raise ScrabbleError(
                     f'Tile overlap: there is already a tile on {new_tile.pos}')
-        self.tiles += new_tiles
+        self.tiles += tiles_to_add
 
-    def remove_tiles(self, old_tiles: list[Tile]):
-        for tile in old_tiles:
+    def remove_tiles(self, tiles_to_remove: list[Tile]):
+        for tile in tiles_to_remove:
             if tile not in self.tiles:
                 raise ScrabbleError('tile not in board tiles')
             self.tiles.remove(tile)
 
-    def __first_index(self, line: list[str]):
-        line = [' '] + line
-        return [i for i, [prev, curr] in enumerate(zip(line, line[1:]))
+    def __first_index(self, row_or_col: list[str]):
+        row_or_col = [' '] + row_or_col
+        return [i for i, [prev, curr] in enumerate(zip(row_or_col, row_or_col[1:]))
                 if prev == ' ' and curr != ' ']
 
-    def get_words(self):
+    def get_words(self) -> list[Word]:
+        """
+        Returns list[Word] corresponding to the words present on the board in 
+        """
         rows = self.__format_board()
         cols = [[row[i] for row in rows] for i in range(len(rows[0]))]
         words = []
@@ -88,6 +91,9 @@ class Board:
         return words
 
     def get_new_words(self, new_tiles: list[Tile]):
+        """
+        Return the words formed by the new_tiles, raise an error if one new word is unvalid
+        """
         old_words = self.get_words()
         self.add_tiles(new_tiles)
         new_words = self.get_words()
@@ -97,7 +103,8 @@ class Board:
                 new_words.remove(old_word)
         # TODO: Find way to retireve the unvalid_words in the ScrabbleError
         if unvalid_words := [word for word in new_words if not word]:
-            raise ScrabbleError('Unvalid words detected', unvalid_words)
+            raise ScrabbleError('Unvalid words detected',
+                                unvalid_words, new_words)
         return new_words
 
     # TODO: Refactor if possible
@@ -105,9 +112,7 @@ class Board:
         new_words = self.get_new_words(new_tiles)
         new_tiles_loc = [tile.pos for tile in new_tiles]
         for word in new_words:
-            print(word)
             for tile in word.tiles:
-                print(tile)
                 if tile.pos in new_tiles_loc:
                     if tile.pos in multipliers['letter_double']:
                         print('letter double')

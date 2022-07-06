@@ -1,6 +1,6 @@
 import pytest
-from scrabble_python.game_items.purse import Purse
-from scrabble_python.game_items.tile import Tile
+from scrabble_python.game_items import Purse
+from scrabble_python.game_items import Tile
 from scrabble_python.game_items.helpers import create_distribution
 from scrabble_python.game_items.scrabble_errors import ScrabbleError
 

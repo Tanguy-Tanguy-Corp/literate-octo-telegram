@@ -21,6 +21,9 @@ class Purse:
     def __len__(self):
         return len(self.tiles)
 
+    def __str__(self):
+        return(str(self.get_dist()))
+
     def get_dist(self):
         init_dist = create_distribution(lang=self.lang, format='dict')
         available = {}

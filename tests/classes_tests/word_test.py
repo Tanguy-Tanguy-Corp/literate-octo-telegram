@@ -1,5 +1,5 @@
-from scrabble_python.game_items.tile import Tile
-from scrabble_python.game_items.word import Word
+from scrabble_python.game_items import Tile
+from scrabble_python.game_items import Word
 
 
 def test_word_uppercase():
