@@ -13,8 +13,8 @@ class Scrabble:
         self.players = players
         if self.players is None:
             self.players = [
-                Player('player_1', rack_size=self.rack_size),
-                Player('player_2', rack_size=self.rack_size)
+                Player('player_1'),
+                Player('player_2')
             ]
         self.nb_players = len(self.players)
         if self.nb_players > 4:
