@@ -42,6 +42,14 @@ def test_add_tiles():
     new_tiles = [Tile('O', (8, 7)), Tile('I', (9, 7))]
     board.add_tiles(new_tiles)
     assert len(board) == 6
+    # First tile must be on center
+    board = Board()
+    board.add_tiles(valid_first_tiles)
+    assert len(board) == 4
+    board = Board()
+    with pytest.raises(ScrabbleError):
+        board.add_tiles(unvalid_first_tiles)
+    assert len(board) == 0
 
 
 def test_overlap_add_tiles():

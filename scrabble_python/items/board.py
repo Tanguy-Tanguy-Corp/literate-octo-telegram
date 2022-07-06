@@ -51,10 +51,14 @@ class Board:
 
     def add_tiles(self, tiles_to_add: list[Tile]):
         coords_on_board = [tile.pos for tile in self.tiles]
-        for new_tile in tiles_to_add:
-            if new_tile.pos in coords_on_board:
+        # First tile must be on center check
+        if len(self) == 0 and (self.size//2, self.size//2) not in [tile_to_add.pos for tile_to_add in tiles_to_add]:
+            raise ScrabbleError('First tile must be on center')
+        # Tile overlap check
+        for tile_to_add in tiles_to_add:
+            if tile_to_add.pos in coords_on_board:
                 raise ScrabbleError(
-                    f'Tile overlap: there is already a tile on {new_tile.pos}')
+                    f'Tile overlap: there is already a tile on {tile_to_add.pos}')
         self.tiles += tiles_to_add
 
     def remove_tiles(self, tiles_to_remove: list[Tile]):
