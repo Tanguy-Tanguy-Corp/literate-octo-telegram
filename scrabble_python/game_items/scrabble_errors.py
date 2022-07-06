@@ -1,0 +1,2 @@
+class ScrabbleError(Exception):
+    pass
