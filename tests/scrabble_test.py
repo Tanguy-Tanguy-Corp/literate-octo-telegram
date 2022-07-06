@@ -1,0 +1,1 @@
+from scrabble_python import Scrabble

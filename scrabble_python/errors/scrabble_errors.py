@@ -3,3 +3,6 @@ class ScrabbleError(Exception):
 
 class PurseError(Exception):
     pass
+
+class UnvalidWords(Exception):
+    pass
