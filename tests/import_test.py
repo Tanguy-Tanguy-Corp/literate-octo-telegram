@@ -1,7 +1,7 @@
-from scrabble_python.game_items import Tile
-from scrabble_python.game_items import Word
-from scrabble_python.game_items import Purse
-from scrabble_python.game_items import Board
+from scrabble_python.items import Tile
+from scrabble_python.items import Word
+from scrabble_python.items import Purse
+from scrabble_python.items import Board
 
 def test_tile_import():
     tile = Tile('A', (0, 0))
